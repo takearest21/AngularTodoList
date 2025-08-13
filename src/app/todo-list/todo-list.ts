@@ -40,27 +40,44 @@ export class TodoList {
   addTask() :void{
     
     if(this.newTask.trim() !== "") {
-      const newTodoItem : TodoItem = {
-          id : Date.now(),
-          task : this.newTask,
-          completed: false
-      }
-      this.tasks.push(newTodoItem);
-      this.newTask = ""; // Clear the input field after adding the task
-      document.getElementById('taskInput')?.focus(); // Set focus back to the input
+      this.apiService.addTask(this.newTask).subscribe({
+        next: (response) => {
+          this.newTask = ""; // Clear the input field after adding the task
+          this.ngOnInit(); // Refresh the task list
+          document.getElementById('taskInput')?.focus(); // Set focus back to the input
+        },
+        error: (error) => {
+          console.error('Error adding task:', error);
+        }
+      });
     }
-    console.log(this.tasks);
   }
 
-  toggleCompleted(index: number): void{
-    console.log("Toggle completed for index:", index);
-    this.tasks[index].completed = !this.tasks[index].completed;
-    console.log("Updated todo item:", this.tasks) ;
+  toggleCompleted(task: any): void {
+    const updatedTask = { ...task, completed: !task.completed };
+    const id = this.apiService.mongoAvailable ? updatedTask._id : updatedTask.id;
+
+    this.apiService.updateTask(id, updatedTask).subscribe({
+      next: (response) => {
+        this.ngOnInit(); // Refresh the task list to reflect the change from the backend
+      },
+      error: (error) => {
+        console.error('Error updating task:', error);
+        // Revert the change if the API call fails to maintain UI consistency with backend
+        task.completed = !updatedTask.completed;
+      }
+    });
   }
 
-  deleteTask(id: number): void {
-    this.tasks = this.tasks.filter(todo => todo._id !==id);
-    console.log("Todo item deleted with id:", id);
-    console.log("Updated todo list:", this.tasks);
+  deleteTask(task: any): void {
+    const id = this.apiService.mongoAvailable ? task._id : task.id;
+    this.apiService.deleteTask(id).subscribe({
+      next: (response) => {
+        this.ngOnInit(); // Refresh the task list
+      },
+      error: (error) => {
+        console.error('Error deleting task:', error);
+      }
+    });
   }
 }
