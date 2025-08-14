@@ -2,7 +2,7 @@
 
 <div class="add-task">
   <input id="taskInput" [(ngModel)]="newTask" placeholder="Add new task" (keyup.enter)="addTask()" />
-  <button (click)="addTask()">Add</button>
+  <button (click)="addTask()">ADD</button>
 </div>
 
 <div *ngIf="isLoading" class="loading-indicator">Loading tasks...</div>
