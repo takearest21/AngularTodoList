@@ -16,9 +16,9 @@
     <div class="item-header">
       <h3>{{ item.title }}</h3>
       <div class="actions">
-        <button (click)="editItem(item)" *ngIf="!item.isEditing">Edit</button>
+        <button (click)="editItem(item)" *ngIf="!item.isEditing">📝</button>
         <button (click)="saveEdit(item)" *ngIf="item.isEditing">Save</button>
-        <button (click)="deleteItem(item.id)">Delete</button>
+        <button (click)="deleteItem(item.id)">🗑️</button>
       </div>
     </div>
 
@@ -30,9 +30,9 @@
           {{ item.showUsername ? item.username : '***' }}
         </span>
         <button (click)="toggleShow(item, 'username')">
-          {{ item.showUsername ? 'Hide' : 'Show' }}
+          {{ item.showUsername ? '🫣' : '👁️' }}
         </button>
-        <button (click)="copyToClipboard(item.username)">Copy</button>
+        <button (click)="copyToClipboard(item.username)">📋</button>
       </div>
 
       <div class="detail-row">
@@ -42,9 +42,9 @@
           {{ item.showPassword ? item.password : '***' }}
         </span>
         <button (click)="toggleShow(item, 'password')">
-          {{ item.showPassword ? 'Hide' : 'Show' }}
+          {{ item.showPassword ? '🫣' : '👁️' }}
         </button>
-        <button (click)="copyToClipboard(item.password)">Copy</button>
+        <button (click)="copyToClipboard(item.password)">📋</button>
       </div>
     </div>
   </div>

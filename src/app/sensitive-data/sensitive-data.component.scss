@@ -73,24 +73,16 @@
       .actions button {
         margin-left: 8px;
         padding: 8px 12px;
-        border: none;
+        border: 1px solid #ccc; /* Add solid line border */
+        background-color: transparent; /* Remove background color */
+        color: #333; /* Set text color */
         border-radius: 4px;
         cursor: pointer;
-        transition: background-color 0.2s;
+        transition: background-color 0.2s, border-color 0.2s;
 
-        &:first-child {
-          background-color: #28a745; /* Edit/Save */
-          color: white;
-          &:hover {
-            background-color: #218838;
-          }
-        }
-        &:nth-child(2) {
-          background-color: #dc3545; /* Delete */
-          color: white;
-          &:hover {
-            background-color: #c82333;
-          }
+        &:hover {
+          background-color: #f0f0f0;
+          border-color: #999;
         }
       }
     }
@@ -123,24 +115,16 @@
 
         button {
           padding: 8px 12px;
-          border: none;
+          border: 1px solid #ccc; /* Add solid line border */
+          background-color: transparent; /* Remove background color */
+          color: #333; /* Set text color */
           border-radius: 4px;
           cursor: pointer;
-          transition: background-color 0.2s;
+          transition: background-color 0.2s, border-color 0.2s;
 
-          &:first-of-type { /* Show/Hide */
-            background-color: #6c757d;
-            color: white;
-            &:hover {
-              background-color: #5a6268;
-            }
-          }
-          &:last-of-type { /* Copy */
-            background-color: #17a2b8;
-            color: white;
-            &:hover {
-              background-color: #138496;
-            }
+          &:hover {
+            background-color: #f0f0f0;
+            border-color: #999;
           }
         }
       }

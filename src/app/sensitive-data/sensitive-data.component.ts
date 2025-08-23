@@ -37,8 +37,8 @@ export class SensitiveDataComponent implements OnInit {
     if (data) {
       this.sensitiveDataList = JSON.parse(data).map((item: SensitiveDataItem) => ({
         ...item,
-        showUsername: false,
-        showPassword: false,
+        showUsername: true, // Default to showing username
+        showPassword: false, // Default to hiding password
         isEditing: false
       }));
     }
@@ -55,8 +55,8 @@ export class SensitiveDataComponent implements OnInit {
         title: this.newItemTitle,
         username: this.newItemUsername,
         password: this.newItemPassword,
-        showUsername: false,
-        showPassword: false,
+        showUsername: true, // Default to showing username for new items
+        showPassword: false, // Default to hiding password for new items
         isEditing: false
       };
       this.sensitiveDataList.push(newItem);

@@ -67,4 +67,12 @@ export class SessionStorageService {
     tasks = tasks.map(task => (task.id === id ? { ...task, ...updatedTask } : task));
     this.saveTasksToSessionStorage(tasks);
   }
+
+  setLastActiveTab(tabName: string): void {
+    this.setItem('lastActiveTab', tabName);
+  }
+
+  getLastActiveTab(): string | null {
+    return this.getItem('lastActiveTab');
+  }
 }

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SensitiveDataComponent } from '../sensitive-data/sensitive-data.component';
 import { TodoList } from '../todo-list/todo-list';
+import { SessionStorageService } from '../../api-services/session-storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,10 +12,20 @@ import { TodoList } from '../todo-list/todo-list';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   activeTab: string = 'sensitiveData';
+
+  constructor(private sessionStorageService: SessionStorageService) {}
+
+  ngOnInit(): void {
+    const lastActiveTab = this.sessionStorageService.getLastActiveTab();
+    if (lastActiveTab) {
+      this.activeTab = lastActiveTab;
+    }
+  }
 
   setActiveTab(tab: string): void {
     this.activeTab = tab;
+    this.sessionStorageService.setLastActiveTab(tab);
   }
 }
