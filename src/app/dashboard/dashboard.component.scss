@@ -1,0 +1,39 @@
+.dashboard-container {
+  padding: 20px;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab-button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-right: 5px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+
+  &.active {
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+    font-weight: bold;
+  }
+}
+
+.tab-content {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 0 8px 8px 8px;
+  background-color: #fff;
+}

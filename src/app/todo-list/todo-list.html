@@ -11,7 +11,7 @@
   <li *ngFor="let task of tasks" [ngClass]="{'completed': task.completed}">
     <div class="task-content">
       <input type="checkbox" [checked]="task.completed" (change)="toggleCompleted(task)" />
-      <span>{{task.task}}</span>
+      <span>{{task.name}}</span>
     </div>
     <button id="deleteBtn" (click)="deleteTask(task)">Delete</button>
   </li>

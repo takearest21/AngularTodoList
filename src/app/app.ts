@@ -1,27 +1,11 @@
-import { NgClass, NgFor } from '@angular/common';
-import { Component, signal } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
-import { TodoList } from './todo-list/todo-list';
+import { Component } from '@angular/core';
+import { DashboardComponent } from './dashboard/dashboard.component';
  
-export interface TodoItem{
-  id: number;
-  task: string;
-  completed: boolean;
-}
-
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule, TodoList, HttpClientModule],
+  imports: [DashboardComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  todoList : TodoItem[] = [];
-
-
-
-  
-
 }

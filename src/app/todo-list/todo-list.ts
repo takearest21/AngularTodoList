@@ -4,7 +4,7 @@ import { ApiService } from '../../api-services/api.services';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';  
 import { FormsModule } from '@angular/forms';
-import { TodoItem } from '../app';
+// import { TodoItem } from '../app'; // No longer needed as TodoItem is not used directly here
 
 @Component({
   selector: 'app-todo-list',

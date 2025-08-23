@@ -1,0 +1,51 @@
+<div class="sensitive-data-container">
+  <h2>Sensitive Data Manager</h2>
+
+  <div class="new-item-form">
+    <input type="text" [(ngModel)]="newItemTitle" placeholder="Title" />
+    <input type="text" [(ngModel)]="newItemUsername" placeholder="Username" />
+    <input type="password" [(ngModel)]="newItemPassword" placeholder="Password" />
+    <button (click)="addItem()">Add Item</button>
+  </div>
+
+  <div *ngIf="sensitiveDataList.length === 0" class="no-data-message">
+    No sensitive data added yet.
+  </div>
+
+  <div *ngFor="let item of sensitiveDataList" class="sensitive-data-item">
+    <div class="item-header">
+      <h3>{{ item.title }}</h3>
+      <div class="actions">
+        <button (click)="editItem(item)" *ngIf="!item.isEditing">Edit</button>
+        <button (click)="saveEdit(item)" *ngIf="item.isEditing">Save</button>
+        <button (click)="deleteItem(item.id)">Delete</button>
+      </div>
+    </div>
+
+    <div class="item-details">
+      <div class="detail-row">
+        <span>Username:</span>
+        <input *ngIf="item.isEditing" type="text" [(ngModel)]="item.username" />
+        <span *ngIf="!item.isEditing">
+          {{ item.showUsername ? item.username : '***' }}
+        </span>
+        <button (click)="toggleShow(item, 'username')">
+          {{ item.showUsername ? 'Hide' : 'Show' }}
+        </button>
+        <button (click)="copyToClipboard(item.username)">Copy</button>
+      </div>
+
+      <div class="detail-row">
+        <span>Password:</span>
+        <input *ngIf="item.isEditing" type="text" [(ngModel)]="item.password" />
+        <span *ngIf="!item.isEditing">
+          {{ item.showPassword ? item.password : '***' }}
+        </span>
+        <button (click)="toggleShow(item, 'password')">
+          {{ item.showPassword ? 'Hide' : 'Show' }}
+        </button>
+        <button (click)="copyToClipboard(item.password)">Copy</button>
+      </div>
+    </div>
+  </div>
+</div>
