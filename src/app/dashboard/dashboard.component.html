@@ -6,6 +6,9 @@
     <button class="tab-button" [class.active]="activeTab === 'todoList'" (click)="setActiveTab('todoList')">
       My Tasks
     </button>
+    <button class="tab-button" [class.active]="activeTab === 'settings'" (click)="setActiveTab('settings')">
+      Settings
+    </button>
   </div>
 
   <div class="tab-content">
@@ -14,6 +17,9 @@
     </div>
     <div *ngIf="activeTab === 'todoList'">
       <app-todo-list></app-todo-list>
+    </div>
+    <div *ngIf="activeTab === 'settings'">
+      <app-settings></app-settings>
     </div>
   </div>
 </div>

@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SensitiveDataComponent } from '../sensitive-data/sensitive-data.component';
 import { TodoList } from '../todo-list/todo-list';
+import { Settings } from '../settings/settings';
 import { SessionStorageService } from '../../api-services/session-storage.service';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterModule, SensitiveDataComponent, TodoList],
+  imports: [CommonModule, RouterModule, SensitiveDataComponent, TodoList, Settings],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })

@@ -1,0 +1,48 @@
+.settings-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  margin-top: 20px; /* To give some space from the navigation */
+}
+
+.settings-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.setting-item h3 {
+  margin: 0;
+  min-width: 150px;
+  color: #555;
+}
+
+.setting-item p {
+  margin: 0;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.setting-item button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.setting-item button:hover {
+  background-color: #c82333;
+}

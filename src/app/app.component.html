@@ -7,6 +7,9 @@
      duration-500 ease-in-out my-5">
         Todo List
     </div>
+    <nav>
+      <a routerLink="/settings" class="text-blue-500 hover:underline">Settings</a>
+    </nav>
 
     <app-todo-add (todoAdd)="addTask($event)"></app-todo-add>
 

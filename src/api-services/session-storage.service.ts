@@ -75,4 +75,10 @@ export class SessionStorageService {
   getLastActiveTab(): string | null {
     return this.getItem('lastActiveTab');
   }
+
+  clearSession(): void {
+    if (this.isBrowser) {
+      sessionStorage.clear();
+    }
+  }
 }
