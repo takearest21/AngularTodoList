@@ -10,4 +10,13 @@
     <h3>Session Data:</h3>
     <button (click)="clearSessionData()">Delete All Session Data</button>
   </div>
+
+  <div class="setting-item">
+    <h3>Data Management:</h3>
+    <div class="data-actions">
+      <button (click)="exportData()">⬇️ Export Data</button>
+      <input type="file" (change)="importData($event)" accept=".json" style="display: none;" #fileInput />
+      <button (click)="fileInput.click()">⬆️ Import Data</button>
+    </div>
+  </div>
 </div>

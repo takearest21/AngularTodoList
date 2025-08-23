@@ -46,3 +46,22 @@
 .setting-item button:hover {
   background-color: #c82333;
 }
+
+.data-actions {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
+
+.data-actions button {
+  background-color: #007bff; /* A more neutral blue */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.data-actions button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
