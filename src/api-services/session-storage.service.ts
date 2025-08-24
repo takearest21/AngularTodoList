@@ -13,27 +13,27 @@ export class SessionStorageService {
 
   setItem(key: string, value: string): void {
     if (this.isBrowser) {
-      sessionStorage.setItem(key, value);
+      localStorage.setItem(key, value);
     }
   }
 
   getItem(key: string): string | null {
     if (this.isBrowser) {
-      return sessionStorage.getItem(key);
+      return localStorage.getItem(key);
     }
     return null;
   }
 
   removeItem(key: string): void {
     if (this.isBrowser) {
-      sessionStorage.removeItem(key);
+      localStorage.removeItem(key);
     }
   }
 
   // Task-related methods
   private getTasksFromSessionStorage(): any[] {
     if (this.isBrowser) {
-      const tasks = sessionStorage.getItem('tasks');
+      const tasks = localStorage.getItem('tasks');
       return tasks ? JSON.parse(tasks) : [];
     }
     return [];
@@ -41,7 +41,7 @@ export class SessionStorageService {
 
   private saveTasksToSessionStorage(tasks: any[]): void {
     if (this.isBrowser) {
-      sessionStorage.setItem('tasks', JSON.stringify(tasks));
+      localStorage.setItem('tasks', JSON.stringify(tasks));
     }
   }
 
@@ -78,7 +78,7 @@ export class SessionStorageService {
 
   clearSession(): void {
     if (this.isBrowser) {
-      sessionStorage.clear();
+      localStorage.clear();
     }
   }
 }
